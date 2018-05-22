@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <title>WORK TEST</title>
+  </head>
+  <body>
+
+  	<div class="container">
+  	  <form id="form" method="get">
+  	  <h3 style="color:#999">{{textCurrencyFrom}}</h1>	
+  	  <h1>{{textCurrencyTo}}</h1>	
+	  <div class="row" style="margin-bottom: 15px;">
+	    <div class="col-lg">
+	      <input type="text" id="quantityFrom" class="form-control" name="quantityFrom" value="{{quantityFrom}}">
+	    </div> 
+	    <div class="col-lg">
+	      <select class="form-control" id="currencyFrom"  name="currencyFrom" onchange="calculate()" >
+	      		{% for  key, currency in famaryCurrency %}
+	      		<option value="{{ key }}" "{% if key == currencyFrom %} selected {% endif %}">  {{ currency }}</option>
+	      		 {% endfor %}
+	      		
+	    	</select>
+	    	
+	    </div>
+	    
+	  </div>
+	   <div class="row">
+	    <div class="col-lg">
+	      <input type="text" class="form-control" id="quantityTo" name ="quantityTo" value="{{quantityTo}}">
+	    </div>
+	    <div class="col-lg">
+	      <select class="form-control" id="currencyTo" name="currencyTo" onchange="calculate()">
+	     		{% for  key, currency in famaryCurrency %}
+	      		<option value="{{ key }}" "{% if key == currencyTo %} selected {% endif %}">  
+	      		{{ currency }}
+	      		</option>
+	      		 {% endfor %}
+	    	</select>
+	    </div>
+
+	  </div>
+	 
+	  </form>
+
+	</div>
+  </body>
+  <script type="text/javascript">
+  	function calculate() {
+  		document.getElementById("form").submit();
+	}
+
+  </script>
+  
+</html>
